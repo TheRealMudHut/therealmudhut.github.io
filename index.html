@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TheRealMudHut">
+    <meta name="twitter:title" content="Watch that $HUT turn into a palace!">
+    <meta name="twitter:description" content="Enter HUT Token">
+    <meta name="twitter:image" content="modhorizon.jpg"> <!-- FIXME -->
+
+    <meta property="og:title" content="Watch that $HUT turn into a palace!">
+    <meta property="og:description" content="Enter HUT Token">
+    <meta property="og:image" content="mudhorizon.jpg"> <!-- FIXME -->
+    <meta property="og:url" content="https://">         <!-- FIXME -->
+    <meta property="og:type" content="website">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="manifest" href="site.webmanifest">
+
+    <title>$HUT - Hustle Utility Token</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+
+        .title {
+            text-align: center;
+            margin-top: 10vh;
+         }
+
+        .title h1 {
+            font-size: 6rem; 
+            letter-spacing: 10px;
+        }
+
+        body {
+            background: url('mudhorizon.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+        }
+
+        .button {
+            display:inline-block;
+            padding: 20px 40px;
+            margin: 20px;
+            font-size: 3.0rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 16px;
+            text-decoration:none;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: scale(1.1);
+        }
+
+        #scroller {
+            white-space: nowrap;
+            overflow: hidden;
+            width: 50%;
+            margin:0 auto;
+            height:3vmax;
+            position: relative;
+            font-size: 2.2rem;
+            margin-bottom:3vmax;
+        }
+        #scroller span {
+            position: absolute;
+            white-space: nowrap;
+            will-change: transform;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+	        font-size: 2.0rem;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+
+            .title h1 {
+                 font-size:3.0rem;   
+            }
+
+            .button {
+                font-size: 1.2rem;
+                padding: 15px 30px;
+            }
+
+            #scroller {
+                font-size:1.2rem;
+                width:90%;
+                height:5vmax;
+            }
+
+            footer a {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="title">
+        <h1>$HUT</h1>
+    </div>
+
+    <div class="content">
+        <a href="https://t.me/hustleutilitytoken" target="_blank" class="button">Telegram</a>
+        <a href="https://x.com/TheRealMudHut" target="_blank" class="button">Twitter</a>
+    </div>
+
+    <div id="scroller">
+        <span id="scrollingText">A humble mud hut in a typical Nigerian village, surrounded by the hustle and grind. The air is thick with the scent of ambition—where every keystroke could be the next big play. Enter HUT Token, the ultimate slow cooker for those who know that patience pays off. In a world where quick flips and pump-and-dump schemes rule, HUT is the steady grind, the long game. Perfect for those who don’t mind waiting for the perfect moment to strike. Sure, it’s a slow cooker, but when it’s ready, it’s ready to serve up some juicy returns. So, if you’re in it for the long haul and know the value of a good hustle, HUT is the token to hold. Play the game, stay in the game, and watch that hut turn into a palace. 🏰💰</span>
+    </div>
+
+    <footer>
+        <a href="https://pump.fun/FtA5iDi36e2W7QWTdqMKePL5a89iZgo1jM7CALLpump" target="_blank">pump.fun</a>
+        <a href="https://solscan.io/token/FtA5iDi36e2W7QWTdqMKePL5a89iZgo1jM7CALLpump" target="_blank">solscan.io</a>
+    </footer>
+
+    <script>
+        const scroller = document.getElementById('scroller');
+        const text = document.getElementById('scrollingText');
+        let startPosition;
+        let scrollerWidth;
+        let textWidth;
+        let speed = 2; 
+        
+        function updateDimensions() {
+            scrollerWidth = scroller.offsetWidth;
+            textWidth = text.offsetWidth;
+            startPosition = scrollerWidth;  
+        }
+    
+        function scrollText() {
+            startPosition -= speed;
+            if (startPosition + textWidth < 0) {        
+                startPosition = scrollerWidth;
+            }
+            text.style.transform = `translateX(${startPosition}px)`;
+    
+            requestAnimationFrame(scrollText);
+        }
+    
+        window.onload = () => {
+            updateDimensions();
+            scrollText();
+        };
+    
+        window.onresize = updateDimensions;
+    </script>
+</body>
+</html>
